@@ -17,6 +17,45 @@ function ResponseModel() {
       .filter(function(ws) { return ws.isSelected() })
       .sort(function(a, b) { return a.wsSlots[0] < b.wsSlots[0] });
   })
+  _this.submit = function() {
+    var submission = [];
+    submission.push($("#inputName").val());
+    submission.push($("#inputEmail").val());
+    submission.push($("#inputLG").val());
+    if ($("#optionsArrivalElse:checked").length) {
+      submission.push($("#inputArrival").val());
+    } else {
+      submission.push("");
+    }
+    if ($("#optionsDepartureElse:checked").length) {
+      submission.push($("#inputDeparture").val());
+    } else {
+      submission.push("");
+    }
+    // Ernährung
+    if ($("#optionsDietElse:checked").length) {
+      submission.push($("#inputDiet").val());
+    } else {
+      submission.push($.trim($("[name=optionsDiet]:checked").parent().text()));
+    }
+    // Workshops
+    submission.push(_.map(_this.selectedWorkshops(), function(ws) {
+      return ws.wsTitle()
+    }).join(';'));
+    // prepare ...
+    submission = submission.join(';');
+    $('#submission').html(submission);
+    // post results
+    $.ajax({
+      type: 'PUT',
+      url: 'anmeldung.php',
+      data: submission
+    }).done(function()  {$('#successModal').modal('show');})
+      .error(function(jqxhr) {
+        $('#errorModal').modal('show');
+      });
+    return false;
+  }
 }
 
 function WorkshopModel($wsEl) {

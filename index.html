@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Workshop Elternarbeit &middot; Anmeldung</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/site.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="container-narrow">
+
+  <div class="page-header">
+    <h1>
+      Workshop Elternarbeit <br>
+      <small>15.&ndash;17. März 2013, Jugendherberge Kassel</small>
+    </h1>
+  </div>
+
+  <form class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="inputName">Name</label>
+      <div class="controls">
+        <input type="text" id="inputName" placeholder="Kai Uwe">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="inputEmail">E-Mail</label>
+      <div class="controls">
+        <input type="text" id="inputEmail" placeholder="kai.uwe@yfu-deutschland.de">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="inputLG">Landesgruppe</label>
+      <div class="controls">
+        <select id="inputLG">
+          <option>BE</option>
+          <option>BRMV</option>
+          <option>BW</option>
+          <option>BY</option>
+          <option>HE</option>
+          <option>HH</option>
+          <option>MD</option>
+          <option>NH</option>
+          <option>NW</option>
+          <option>RH</option>
+          <option>SH</option>
+          <option>WF</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Ankunft</label>
+      <div class="controls">
+        <label class="radio">
+          <input type="radio" name="optionsArrival" id="optionsArrivalStart" checked>
+          Freitag bis 18:00 Uhr
+        </label>
+        <label class="radio">
+          <input type="radio" name="optionsArrival" id="optionsArrivalElse">
+          Später, nämlich <input class="input-medium" type="text" id="inputArrival" placeholder="z.B. Samstag um 8:00">
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Abreise</label>
+      <div class="controls">
+        <label class="radio">
+          <input type="radio" name="optionsDeparture" id="optionsDepartureEnd" checked>
+          Sonntag ab 13:00 Uhr
+        </label>
+        <label class="radio">
+          <input type="radio" name="optionsDeparture" id="optionsDepartureElse">
+          Früher, nämlich <input class="input-medium" type="text" id="inputDeparture" placeholder="z.B. Samstag um 20:00">
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Ernährung</label>
+      <div class="controls">
+        <label class="radio">
+          <input type="radio" name="optionsDiet" id="optionsDietStandard" checked>
+          alles
+        </label>
+        <label class="radio">
+          <input type="radio" name="optionsDiet" id="optionsDietVegetarian">
+          vegetarisch
+        </label>
+        <label class="radio">
+          <input type="radio" name="optionsDiet" id="optionsDietVegan">
+          vegan
+        </label>
+        <label class="radio">
+          <input type="radio" name="optionsDiet" id="optionsDietElse">
+          <input class="input-medium" type="text" id="inputDiet" placeholder="laktosefrei">
+        </label>
+      </div>
+    </div>
+
+    <hr>
+
+    <p><a class="btn" href="javascript:recommendNeulinge()">Vorschläge für Referatsneulinge</a></p>
+
+    <table class="table table-bordered program-table">
+      <tr>
+        <th rowspan="2">Fr</th>
+        <td class="obligatory" colspan="3">
+          Begrüßung
+          <span class="pull-right"><i class="icon-check"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="obligatory" colspan="3">
+          Bedeutung der Elternarbeit
+          <span class="pull-right"><i class="icon-check"></i></span>
+        </td>
+      </tr>
+
+      <tr>
+        <th rowspan="9">Sa</th>
+        <td colspan="3" class="no-ws">Frühstück</td>
+      </tr>
+      <tr>
+        <td class="ws"
+          rowspan="2"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Basics für Referatsneulinge"
+          data-recommended-for="neulinge"
+          data-ws-slot="[1,2]"
+          data-ws-description="TODO">
+        </td>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Gute Elternarbeit unter schwierigen Bedingungen"
+          data-ws-slot="1"
+          data-ws-description="Ein Workshop für Fortgeschrittene">
+        </td>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Methoden aus dem Rahmenkonzept"
+          data-ws-slot="1"
+          data-ws-description="Ein Workshop für Fortgeschrittene">
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="GS-Austausch v. Erfahrungen"
+          data-ws-slot="2"
+          data-ws-description="Ein Workshop für Fortgeschrittene">
+        </td>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Asien-Special"
+          data-ws-slot="2"
+          data-ws-description="Ein Workshop für Fortgeschrittene">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="no-ws">Mittag</td>
+      </tr>
+      <tr>
+        <td class="ws"
+          rowspan="2"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="LG Zeitstrahl EP"
+          data-ws-slot="[3,4]"
+          data-ws-description="">
+        </td>
+        <td
+          class="ws"
+          rowspan="2"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="LG Zeitstrahl AP"
+          data-ws-slot="[3,4]"
+          data-ws-description="">
+        </td>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Entautomatisierung"
+          data-ws-slot="3"
+          data-ws-description="">
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Umgang mit Stress bei ATS und Eltern"
+          data-ws-slot="4"
+          data-ws-description="Ein Workshop für Fortgeschrittene">
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="ws"
+          colspan="3"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Prävention"
+          data-recommended-for="neulinge"
+          data-ws-slot="5"
+          data-ws-description="">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="no-ws">Abendessen</td>
+      </tr>
+      <tr>
+        <td
+          class="ws"
+          colspan="2"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Erfahrungen aus der Betreuung"
+          data-ws-slot="6"
+          data-ws-description="">
+        </td>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Mitarbeiterpflege"
+          data-ws-slot="6"
+          data-ws-description="">
+        </td>
+      </tr>
+
+      <tr>
+        <th rowspan="5">So</th>
+        <td colspan="3" class="no-ws">Frühstück</td>
+      </tr>
+      <tr>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Rahmenkonzept"
+          data-ws-slot="7"
+          data-ws-description="">
+        </td>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Wissensmanagement"
+          data-recommended-for="neulinge"
+          data-ws-slot="7"
+          data-ws-description="">
+        </td>
+        <td
+          class="ws"
+          data-bind="click: selectWS, html: text, css: {selected: isSelected}"
+          data-ws-title="Interessenseminar: Vision"
+          data-ws-slot="7"
+          data-ws-description="">
+        </td>
+      </tr>
+      <tr>
+        <td class="obligatory" colspan="3">
+          Datenschutz konkret
+          <span class="pull-right"><i class="icon-check"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="obligatory" colspan="3">
+          Feedback
+          <span class="pull-right"><i class="icon-check"></i></span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="no-ws">Abreise</td>
+      </tr>
+    </table>
+
+    <h3>Deine ausgewählten Workshops</h3>
+    <ol data-bind="foreach: selectedWorkshops">
+      <li data-bind="text: wsTitle"></li>
+    </ol>
+  </form>
+
+  <hr>
+  <button class="btn btn-large btn-block btn-primary" type="button"
+    data-bind="click: submit">
+    Anmelden!
+  </button>
+</div> <!-- /container -->
+
+<!-- modals -->
+<!-- Modal -->
+<div id="successModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Vielen Dank!</h3>
+  </div>
+  <div class="modal-body">
+    <p>Danke dass du dich für den Elternarbeitsworkshop angemeldet hast. Wir haben deine Daten erhalten.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="http://www.yfu.de" class="btn btn-primary">Beenden</a>
+  </div>
+</div>
+
+<div id="errorModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="myModalLabel">Fehler!</h3>
+  </div>
+  <div class="modal-body">
+    <p>Bei der Übertragung deiner Daten ist etwas schief gegangen</p>
+    <p>Bitte versuche es ein zweites Mal und schicke sonst eine E-Mail an <a href="mailto:henning.perl@yfu-deutschland.de">henning.perl@yfu-deutschland.de</a> mit folgendem Inhalt:</p>
+    <p><tt id="submission"><i>Keine Daten gefunden</i></tt></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Schließen</button>
+  </div>
+</div>
+
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/knockout-2.2.1.js"></script>
+<script src="js/ws-anmeldung.js"></script>
+</body>
+</html>
