@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] <> 'PUT') {
 
 $line = file_get_contents("php://input");
 # filter input with a whitelist regex
-$line = preg_replace("~[^a-zA-Z0-9 ;,.@()äöüÄÖÜß]~", '', $line)."\r\n";
+$line = preg_replace("/[^a-zA-Z0-9 ;,.@()äöüÄÖÜß\-]/", '', $line)."\r\n";
 # if all fails we fail
 if (file_put_contents('anmeldung.csv', $line, FILE_APPEND) == false) {
   header('HTTP/1.1 500 Internal Server Error');
