@@ -38,6 +38,8 @@ function ResponseModel() {
     } else {
       submission.push($.trim($("[name=optionsDiet]:checked").parent().text()));
     }
+	// Job
+	submission.push($("#inputJob").val());
     // Workshops
     submission.push(_.map(_this.selectedWorkshops(), function(ws) {
       return ws.wsTitle()
@@ -63,28 +65,42 @@ function WorkshopModel($wsEl) {
       $el = $wsEl,
       wsData = $wsEl.data();
 
+  _this.wsGroup = ko.observable(wsData.wsGroup);
   _this.isSelected = ko.observable(false);
   _this.wsSlots = ko.observable(_.flatten([wsData.wsSlot]));
   _this.wsTitle = ko.observable(wsData.wsTitle);
   _this.recommendedFor = ko.observable(wsData.recommendedFor);
   _this.wsDescription = ko.observable(wsData.wsDescription);
   _this.text = ko.computed(function() {
-    return _this.wsTitle() +
+    return '<strong>'+_this.wsTitle() + '</strong>' +
       '<span class="pull-right"><i class="icon-ws"></i></span>' +
       '<br>' + _this.wsDescription();
   })
 
+  _this.selectGroup = function(state) {
+    if (!_this.wsGroup()) {
+      // WS is not in a group, handle as normal
+      _this.isSelected(state);
+    } else {
+      // WS is in a group, handle each WS in the group
+      _.each(response.workshops(), function(ws) {
+        if (ws.wsGroup() == _this.wsGroup()) {
+          ws.isSelected(state);
+        }
+      });
+    }
+  }
   _this.selectWS = function(data, event) {
     if (_this.isSelected()) {
-      _this.isSelected(false);
+      _this.selectGroup(false);
     } else {
       $el.siblings('.ws').removeClass('selected');
       _.each(response.workshops(), function(ws) {
         if (_.intersection(ws.wsSlots(), _this.wsSlots()).length != 0) {
-          ws.isSelected(false);
+          ws.selectGroup(false);
         }
       })
-      _this.isSelected(true);
+      _this.selectGroup(true);
     }
     response.workshops.valueHasMutated();
   }
