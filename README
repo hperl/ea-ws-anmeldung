@@ -1,0 +1,1 @@
+A sign up form. Allows choosing different modules for a weekend workshop. Backend is a simple php script that writes to a CSV file.
