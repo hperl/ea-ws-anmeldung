@@ -38,8 +38,10 @@ function ResponseModel() {
     } else {
       submission.push($.trim($("[name=optionsDiet]:checked").parent().text()));
     }
-	// Job
-	submission.push($("#inputJob").val());
+    // Job
+    submission.push($("#inputJob").val());
+    // Rahmenkonzept
+    submission.push($.trim($("[name=optionsKonzept]:checked").parent().text()));
     // Workshops
     submission.push(_.map(_this.selectedWorkshops(), function(ws) {
       return ws.wsTitle()
